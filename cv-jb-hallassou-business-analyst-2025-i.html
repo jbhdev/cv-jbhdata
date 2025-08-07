@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Jean-Baptiste Hallassou</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.3;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 297mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 210mm;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0c3067 0%, #1a4a8a 100%);
+            color: white;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            font-weight: 300;
+        }
+        
+        .header-left .title {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .header-right {
+            text-align: right;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+            min-height: calc(210mm - 120px);
+        }
+        
+        .column {
+            padding: 30px 25px;
+        }
+        
+        .column-1 {
+            background: #f3f3f3;
+            border-right: 2px solid #e0e0e0;
+        }
+        
+        .column-2 {
+            border-right: 2px solid #e0e0e0;
+        }
+        
+        .column-3 {
+            background: #f9f9f9;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section h2 {
+            color: #0c3067;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #0c3067;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .profile-text {
+            text-align: justify;
+            font-size: 0.85em;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .skill-category {
+            margin-bottom: 10px;
+        }
+        
+        .skill-category strong {
+            color: #0c3067;
+            display: block;
+            margin-bottom: 3px;
+            font-size: 0.85em;
+        }
+        
+        .skill-category span {
+            font-size: 0.8em;
+            line-height: 1.3;
+        }
+        
+        .project {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .project:last-child {
+            border-bottom: none;
+        }
+        
+        .project h3 {
+            color: #0c3067;
+            font-size: 0.95em;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+        
+        .project ul {
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+        
+        .project li {
+            margin-bottom: 3px;
+            font-size: 0.8em;
+            line-height: 1.3;
+        }
+        
+        .experience {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .experience:last-child {
+            border-bottom: none;
+        }
+        
+        .experience h3 {
+            color: #0c3067;
+            font-size: 1em;
+            margin-bottom: 3px;
+        }
+        
+        .experience .company {
+            font-weight: bold;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .experience .period {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 8px;
+            font-size: 0.85em;
+        }
+        
+        .experience ul {
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+        
+        .experience li {
+            margin-bottom: 3px;
+            font-size: 0.8em;
+            line-height: 1.3;
+        }
+        
+        .education-item {
+            margin-bottom: 12px;
+            font-size: 0.85em;
+        }
+        
+        .education-item strong {
+            color: #0c3067;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .languages .lang-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            padding: 3px 0;
+            font-size: 0.85em;
+        }
+        
+        .emoji {
+            font-size: 1.1em;
+        }
+        
+        /* Spécial pour les projets - répartition sur 2 colonnes */
+        .projects-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            grid-column: span 2;
+        }
+
+        .profil-pic {
+            width: 25%;
+            height: 25%;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            padding: 5px;
+        }
+
+        .bloc-image {
+            background-color: #f3f3f3;
+            padding: 0;        
+            margin: 0;  
+        }
+        
+        .projects-left, .projects-right {
+            padding: 0 15px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                max-width: none;
+            }
+            @page {
+                size: A4 landscape;
+                margin: 0.5cm;
+            }
+        }
+        
+        @media screen and (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .header-right {
+                text-align: center;
+            }
+            .contact-info {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <h1>Jean-Baptiste Hallassou</h1>
+                <div class="title">Business Analyst / Data Analyst</div>
+            </div>
+            <div class="header-right">
+                <div class="contact-info">
+                    <div class="contact-item">📍 Tours, France</div>
+                    <div class="contact-item">📧 jb.hallassou@gmail.com</div>
+                    <div class="contact-item">📞 06 74 74 60 56</div>
+                </div>
+            </div>
+        </header>
+        <div class="bloc-image"">
+        <img class="profil-pic" src="profil.png" alt="">
+        </div>
+        <div class="main-content">
+            <!-- Colonne 1: Profil + Compétences -->
+            <div class="column column-1">
+                <section class="section">
+                    <h2><span class="emoji">🎯</span> Profil</h2>
+                    <p class="profile-text">
+                        Business Analyst orienté données, avec une double expertise en développement web et analyse de données. Après plusieurs années en gestion de projets digitaux, j'ai choisi de me spécialiser dans la data, domaine où je transforme les données en leviers concrets pour la prise de décision.
+                    </p>
+                    <p class="profile-text">
+                        Je maîtrise la visualisation de données, la modélisation statistique et la création de KPI métiers, et j'ai mené des projets allant de la BI à la recommandation par machine learning. Pragmatique, rigoureux et à l'écoute des besoins métiers, j'évolue avec aisance dans des environnements agiles.
+                    </p>
+                </section>
+                
+                <section class="section">
+                    <h2><span class="emoji">🧠</span> Compétences</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <strong>Langages :</strong>
+                            <span>Python (Pandas, NumPy, Scikit-learn, Spark), SQL, HTML, CSS</span>
+                        </div>
+                        <div class="skill-category">
+                            <strong>Outils BI :</strong>
+                            <span>Tableau, Looker Studio</span>
+                        </div>
+                        <div class="skill-category">
+                            <strong>Bases de données :</strong>
+                            <span>MySQL, BigQuery, Google Cloud Storage</span>
+                        </div>
+                        <div class="skill-category">
+                            <strong>Méthodologies :</strong>
+                            <span>Analyse exploratoire, data cleaning, data storytelling, dashboards, définition de KPI</span>
+                        </div>
+                        <div class="skill-category">
+                            <strong>Fonctionnel :</strong>
+                            <span>Recueil de besoins, specs fonctionnelles, reporting, aide à la décision, ateliers utilisateurs</span>
+                        </div>
+                        <div class="skill-category">
+                            <strong>Soft skills :</strong>
+                            <span>Esprit analytique, communication, rigueur, adaptabilité, sensibilité UX</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Colonne 2: Projets Data -->
+            <div class="column column-2">
+                <section class="section">
+                    <h2><span class="emoji">🧩</span> Projets Data (2025)</h2>
+                    <div class="project">
+                        <h3>Domaine des Croix – Analyse du positionnement tarifaire marché américain</h3>
+                        <ul>
+                            <li>Analyse marché du vin (USA) - 130K lignes</li>
+                            <li>Nettoyage données Python (Pandas)</li>
+                            <li>Visualisation KPIs Looker Studio</li>
+                            <li>Recommandations tarifaires vin premium</li>
+                        </ul>
+                    </div>
+                    <div class="project">
+                        <h3>Cyclistic – Stratégie fidélisation client (Chicago)</h3>
+                        <ul>
+                            <li>Traitement +4M lignes Python et Spark</li>
+                            <li>Analyse comparative comportements clients</li>
+                            <li>Recommandations marketing conversion</li>
+                        </ul>
+                    </div>
+                    <div class="project">
+                        <h3>Moviestar – Application recommandation films</h3>
+                        <ul>
+                            <li>Données API IMDb, Pandas, Matplotlib, Seaborn</li>
+                            <li>Algorithmes recommandation Scikit-Learn</li>
+                            <li>Application interactive Streamlit</li>
+                        </ul>
+                    </div>
+                    <div class="project">
+                        <h3>Toys and Models – Dashboard performance multi-métiers</h3>
+                        <ul>
+                            <li>Requêtes SQL complexes KPIs RH, logistique, finances, ventes</li>
+                            <li>Dashboard sur mesure & recommandations stratégiques</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Colonne 3: Expériences + Formation + Langues -->
+            <div class="column column-3">
+                <section class="section">
+                    <h2><span class="emoji">💼</span> Expériences</h2>
+                    <div class="experience">
+                        <h3>Conseiller Web / Web Analyst</h3>
+                        <div class="company">MACIF</div>
+                        <div class="period">Février 2024 – Décembre 2024</div>
+                        <ul>
+                            <li>Suivi performances Google Analytics</li>
+                            <li>Recommandations SEO & marketing digital</li>
+                            <li>Intégration web, gestion projets digitaux</li>
+                        </ul>
+                    </div>
+                    <div class="experience">
+                        <h3>Chef de projet web / Web Analyst</h3>
+                        <div class="company">Freelance</div>
+                        <div class="period">Août 2020 – Décembre 2023</div>
+                        <ul>
+                            <li>Développement CMS (Prestashop, WordPress)</li>
+                            <li>Analyse données performance digitale</li>
+                            <li>Dashboards simples PME, gestion projet</li>
+                        </ul>
+                    </div>
+                    <div class="experience">
+                        <h3>Développeur web</h3>
+                        <div class="company">HF COMPANY</div>
+                        <div class="period">Juillet 2018 – Juillet 2020</div>
+                        <ul>
+                            <li>Intégration CMS, sites vitrines</li>
+                            <li>Optimisation SEO, modules Prestashop</li>
+                        </ul>
+                    </div>
+                    <div class="experience">
+                        <h3>Conseiller commercial</h3>
+                        <div class="company">CIC / HSBC / MATMUT</div>
+                        <div class="period">2010 – 2017</div>
+                        <ul>
+                            <li>Développement portefeuille clients</li>
+                            <li>Produits bancaires et assurances</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2><span class="emoji">🎓</span> Formation</h2>
+                    <div class="education-item">
+                        <strong>Certificat Data Analyst</strong>
+                        Simplon (2025)
+                    </div>
+                    <div class="education-item">
+                        <strong>Certificat Développeur Web</strong>
+                        Wild Code School (2017)
+                    </div>
+                    <div class="education-item">
+                        <strong>DUT Techniques Commercialisation</strong>
+                        Université de Lorraine (2010)
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2><span class="emoji">🌍</span> Langues</h2>
+                    <div class="languages">
+                        <div class="lang-item">
+                            <span>Français</span>
+                            <span>Maternelle</span>
+                        </div>
+                        <div class="lang-item">
+                            <span>Anglais</span>
+                            <span>B2</span>
+                        </div>
+                        <div class="lang-item">
+                            <span>Allemand</span>
+                            <span>Notions</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
